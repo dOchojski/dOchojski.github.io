@@ -3,19 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Daniel Ochojski</title>
-<meta name="description" content="Daniel Ochojski – aplikacje na zamówienie, strony internetowe, quizy i mapy interaktywne na wydarzenia. Tychy, cała Polska.">
+<title>Creativ Apps</title>
+<meta name="description" content="Creativ Apps – Daniel Ochojski. Aplikacje na zamówienie, strony internetowe, quizy i mapy interaktywne na wydarzenia. Tychy, cała Polska.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&display=swap">
 <meta name="theme-color" content="#5C0F1F">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Daniel Ochojski – aplikacje na zamówienie">
-<meta property="og:description" content="Aplikacje mobilne i webowe, strony internetowe, quizy i mapy interaktywne na wydarzenia. Bezpośrednio z programistą.">
-<meta property="og:image" content="portrait.webp">
+<meta property="og:site_name" content="Creativ Apps">
+<meta property="og:title" content="Creativ Apps – aplikacje na zamówienie">
+<meta property="og:description" content="Aplikacje mobilne i webowe, strony internetowe, quizy i mapy interaktywne na wydarzenia. Bezpośrednio z programistą: Daniel Ochojski.">
+<meta property="og:image" content="https://dochojski.github.io/portrait.webp">
+<meta property="og:url" content="https://dochojski.github.io/">
 <meta property="og:locale" content="pl_PL">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235C0F1F'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='28' fill='%23F1E7E0'%3EDO%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Creativ Apps Daniel Ochojski","founder":"Daniel Ochojski","telephone":"+48503558066","email":"daniel.ochojski.25.10@gmail.com","taxID":"6462992418","address":{"@type":"PostalAddress","addressLocality":"Tychy","addressCountry":"PL"},"areaServed":"PL"}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235C0F1F'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='27' fill='%23F1E7E0'%3ECA%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Creativ Apps Daniel Ochojski","alternateName":"Creativ Apps","founder":{"@type":"Person","name":"Daniel Ochojski"},"url":"https://dochojski.github.io/","telephone":"+48503558066","email":"daniel.ochojski.25.10@gmail.com","taxID":"6462992418","address":{"@type":"PostalAddress","addressLocality":"Tychy","addressCountry":"PL"},"areaServed":"PL"}</script>
 </head>
 <body>
 <style>
@@ -67,7 +69,9 @@ button{font:inherit;color:inherit}
 /* ---------- header ---------- */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bordeaux);border-bottom:1px solid var(--line-b)}
 .top .wrap{display:flex;align-items:center;gap:var(--s5);min-height:68px}
-.mark{font:800 18px/1 var(--f-display);font-variation-settings:"wdth" 125;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.mark{display:grid;gap:3px;text-decoration:none;white-space:nowrap}
+.mk-brand{font:850 19px/1 var(--f-display);font-variation-settings:"wdth" 125;letter-spacing:-.01em}
+.mk-name{font:500 12.5px/1 var(--f-body);color:var(--rose);letter-spacing:.01em}
 .nav{display:flex;gap:var(--s5);margin-left:auto}
 .nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--rose)}
 .nav a:hover{color:var(--bone)}
@@ -281,7 +285,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-betw
 
 <header class="top">
   <div class="wrap">
-    <a class="mark" href="#start">Daniel Ochojski</a>
+    <a class="mark" href="#start"><span class="mk-brand">Creativ Apps</span><span class="mk-name">Daniel Ochojski</span></a>
     <nav class="nav" aria-label="Menu">
       <a href="#uslugi" data-i18n="nav1">Usługi</a>
       <a href="#realizacje" data-i18n="nav2">Realizacje</a>
@@ -303,7 +307,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-betw
   <div class="wrap">
     <div class="hero-copy">
       <h1><span data-i18n="h1a">Aplikacje na zamówienie.</span> <span class="thin" data-i18n="h1b">Od pomysłu do App Store i Google Play.</span></h1>
-      <p class="lead" data-i18n="heroLead">Projektuję, programuję i utrzymuję aplikacje, strony internetowe, quizy i mapy na wydarzenia. Rozmawiasz bezpośrednio z programistą, który napisał backend dla płatności online i systemów administracji publicznej.</p>
+      <p class="lead" data-i18n="heroLead">Creativ Apps projektuje, programuje i utrzymuje aplikacje, strony internetowe, quizy i mapy na wydarzenia. Za każdym projektem stoję ja, Daniel Ochojski: rozmawiasz bezpośrednio z programistą, który napisał backend dla płatności online i systemów administracji publicznej.</p>
       <div class="ctas">
         <a class="btn" href="#projekt" data-i18n="cta1">Opisz swój projekt</a>
         <a class="btn ghost" href="#realizacje" data-i18n="cta2">Zobacz ParagonPro</a>
@@ -504,12 +508,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-betw
 <section style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
-      <h2 data-i18n="whyH">Dlaczego bezpośrednio ze mną</h2>
+      <h2 data-i18n="whyH">Dlaczego Creativ Apps</h2>
       <p class="lead muted" data-i18n="whyP">Porównanie z typową ścieżką przez agencję.</p>
     </div>
     <div class="cmp-wrap">
       <table class="cmp">
-        <thead><tr><th scope="col"></th><th scope="col" data-i18n="whyC1">Typowa agencja</th><th scope="col" class="me">Daniel Ochojski</th></tr></thead>
+        <thead><tr><th scope="col"></th><th scope="col" data-i18n="whyC1">Typowa agencja</th><th scope="col" class="me">Creativ Apps</th></tr></thead>
         <tbody>
           <tr><td data-i18n="w1">Kontakt</td><td data-i18n="w1a">Przez opiekuna projektu, który przekazuje pytania dalej</td><td class="me" data-i18n="w1b">Telefon i mail bezpośrednio do osoby, która pisze kod</td></tr>
           <tr><td data-i18n="w2">Szybkość</td><td data-i18n="w2a">Zmiana czeka w kolejce między działami</td><td class="me" data-i18n="w2b">Krótka droga od decyzji do wdrożenia</td></tr>
@@ -585,8 +589,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-betw
       <span class="loc" data-i18n="loc">Tychy, pracuję zdalnie z całą Polską</span>
     </div>
     <div>
-      <h2 data-i18n="abH">Cześć, jestem Daniel</h2>
-      <p class="lead" style="margin-top:24px" data-i18n="abP1">Jestem programistą Java z ponad pięcioletnim doświadczeniem w systemach, w których błąd kosztuje pieniądze. Po godzinach robię aplikacje, strony, quizy i mapy dla firm, organizatorów wydarzeń i osób prywatnych.</p>
+      <h2 data-i18n="abH">Kto stoi za Creativ Apps</h2>
+      <p class="lead" style="margin-top:24px" data-i18n="abP1">Cześć, jestem Daniel. Jestem programistą Java z ponad pięcioletnim doświadczeniem w systemach, w których błąd kosztuje pieniądze. Po godzinach robię aplikacje, strony, quizy i mapy dla firm, organizatorów wydarzeń i osób prywatnych.</p>
       <p class="muted" data-i18n="abP2">Wygrywałem konkursy programistyczne, nadal rozwiązuję zadania algorytmiczne i trenuję sztuki walki. Z obu rzeczy wyniosłem to samo: skończ to, co zacząłeś, i rób to porządnie.</p>
     </div>
   </div>
@@ -630,7 +634,7 @@ let lang="pl";
 const EN={
  nav1:"Services",nav2:"Work",nav3:"Process",nav4:"Contact",
  h1a:"Custom apps, built for you.",h1b:"From idea to the App Store and Google Play.",
- heroLead:"I design, build and maintain apps, websites, quizzes and maps for events. You talk directly to the developer who wrote backends for online payments and public-sector systems.",
+ heroLead:"Creativ Apps designs, builds and maintains apps, websites, quizzes and maps for events. I, Daniel Ochojski, am behind every project: you talk directly to the developer who wrote backends for online payments and public-sector systems.",
  cta1:"Describe your project",cta2:"See ParagonPro",
  f1:"5 years of experience",f2:"Frontend, backend and deployment",f3:"Support after launch",
  tabApp:"App",tabQuiz:"Quiz",tabMap:"Map",
@@ -651,7 +655,7 @@ const EN={
  tr2n:"24/7",tr2h:"Truck traffic at the border",tr2p:"Real-time monitoring of entries and exits, automatic approvals and integration with state databases.",
  tr3n:"Gov",tr3h:"Sanitary inspection system",tr3p:"Scheduling, data processing and reporting for public administration, with performance monitoring and automated deployments.",
  cr1:"5+ years commercially",cr2:"1st place, WSIZ programming contest (2018)",cr3:"2nd place (2019)",cr4:"Competitive programming on Codeforces",
- whyH:"Why work with me directly",whyP:"Compared with the usual route through an agency.",whyC1:"Typical agency",
+ whyH:"Why Creativ Apps",whyP:"Compared with the usual route through an agency.",whyC1:"Typical agency",
  w1:"Contact",w1a:"Through a project manager who passes questions along",w1b:"Phone and email straight to the person writing the code",
  w2:"Speed",w2a:"Changes wait in a queue between departments",w2b:"A short path from decision to release",
  w3:"Scope",w3a:"Design, frontend, backend and hosting handled separately",w3b:"Everything in one place, with one person accountable",
@@ -664,8 +668,8 @@ const EN={
  brH:"Describe your project in a minute",brP:"Pick what fits. Your answers become a ready message you can email me or copy.",
  b1:"What do you want to build?",b2:"When do you need it?",b3:"What do you already have?",b4:"A few sentences about the idea",b4ph:"E.g. an app for booking training sessions with online payment and SMS reminders.",
  send:"Send by email",copyB:"Copy message",brSmall:"I usually reply the same working day. Quotes are free.",
- loc:"Tychy, Poland. I work remotely",abH:"Hi, I'm Daniel",
- abP1:"I'm a Java developer with more than five years of experience in systems where a bug costs money. Alongside that I build apps, websites, quizzes and maps for companies, event organisers and individuals.",
+ loc:"Tychy, Poland. I work remotely",abH:"Who is behind Creativ Apps",
+ abP1:"Hi, I'm Daniel. I'm a Java developer with more than five years of experience in systems where a bug costs money. Alongside that I build apps, websites, quizzes and maps for companies, event organisers and individuals.",
  abP2:"I've won programming contests, still solve algorithm problems and train martial arts. Both taught me the same thing: finish what you start, and do it properly.",
  ctH:"Got an idea? Call or write.",ctPhone:"Phone",copy:"Copy"
 };
