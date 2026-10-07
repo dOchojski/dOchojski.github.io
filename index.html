@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Daniel Ochojski</title>
+<meta name="description" content="Daniel Ochojski – aplikacje na zamówienie, strony internetowe, quizy i mapy interaktywne na wydarzenia. Tychy, cała Polska.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&display=swap">
+<meta name="theme-color" content="#5C0F1F">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daniel Ochojski – aplikacje na zamówienie">
+<meta property="og:description" content="Aplikacje mobilne i webowe, strony internetowe, quizy i mapy interaktywne na wydarzenia. Bezpośrednio z programistą.">
+<meta property="og:image" content="portrait.webp">
+<meta property="og:locale" content="pl_PL">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235C0F1F'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='28' fill='%23F1E7E0'%3EDO%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Creativ Apps Daniel Ochojski","founder":"Daniel Ochojski","telephone":"+48503558066","email":"daniel.ochojski.25.10@gmail.com","taxID":"6462992418","address":{"@type":"PostalAddress","addressLocality":"Tychy","addressCountry":"PL"},"areaServed":"PL"}</script>
+</head>
+<body>
+<style>
+/* Layout: wide fight-poster headline on a bordeaux slab, everything else quiet on warm black.
+   Single committed dark look (brand colours: bordeaux + black). */
+:root{
+  --black:#150D0F;      /* warm black, page ground */
+  --black-2:#1E1316;    /* raised surface */
+  --bordeaux:#5C0F1F;   /* brand field */
+  --bordeaux-2:#7A1629; /* hover / active on bordeaux */
+  --wine:#C42C47;       /* interactive signal, focus */
+  --bone:#F1E7E0;       /* text */
+  --bone-2:#C3B0AC;     /* muted text on black */
+  --rose:#E7C6C3;       /* muted text on bordeaux */
+  --line:#3B2A2E;       /* hairlines on black */
+  --line-b:#84303F;     /* hairlines on bordeaux */
+  --paper:#F6EFE8;      /* receipt paper */
+  --paper-ink:#2A1A1D;
+  --ok:#7FC79B;
+
+  --f-display:"Archivo","Arial Black",Impact,sans-serif;
+  --f-body:"Schibsted Grotesk","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --f-mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;--s8:72px;--s9:112px;
+  --wrap:1240px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--black);color:var(--bone);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--wine);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--f-display);font-variation-settings:"wdth" 125;font-weight:850;letter-spacing:-.02em;line-height:.98;text-wrap:balance;margin:0}
+h2{font-size:clamp(32px,5.2vw,64px)}
+h3{font-size:clamp(20px,2.2vw,26px);line-height:1.1;letter-spacing:-.01em}
+p{margin:0;max-width:62ch}
+.lead{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--bone)}
+.muted{color:var(--bone-2)}
+button{font:inherit;color:inherit}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:2px solid var(--bone);background:var(--bone);color:var(--black);font:700 16px/1 var(--f-body);text-decoration:none;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn:hover{background:transparent;color:var(--bone)}
+.btn.ghost{background:transparent;color:var(--bone);border-color:rgba(241,231,224,.45)}
+.btn.ghost:hover{border-color:var(--bone)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bordeaux);border-bottom:1px solid var(--line-b)}
+.top .wrap{display:flex;align-items:center;gap:var(--s5);min-height:68px}
+.mark{font:800 18px/1 var(--f-display);font-variation-settings:"wdth" 125;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.nav{display:flex;gap:var(--s5);margin-left:auto}
+.nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--rose)}
+.nav a:hover{color:var(--bone)}
+.lang{display:inline-flex;border:1px solid var(--line-b);border-radius:999px;padding:3px}
+.lang button{border:0;background:transparent;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;cursor:pointer;color:var(--rose)}
+.lang button[aria-pressed="true"]{background:var(--bone);color:var(--bordeaux)}
+.top .btn{min-height:40px;padding:0 16px;font-size:14px}
+@media (max-width:860px){.nav{display:none}.lang{margin-left:auto}}
+@media (max-width:420px){.top .call-txt{display:none}.top .btn{padding:0 12px}}
+
+/* ---------- hero ---------- */
+.hero{background:radial-gradient(120% 90% at 85% 10%,#7E1A2E 0%,var(--bordeaux) 45%,#3E0913 100%);padding-block:clamp(40px,7vw,96px) clamp(48px,7vw,104px);border-bottom:1px solid var(--line-b)}
+.fxhost{position:relative;overflow:clip;isolation:isolate}
+.fx{position:absolute;inset:0;width:100%;height:100%;z-index:-1;display:block}
+.fxhost::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.22;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(32px,5vw,72px);align-items:start}
+@media (max-width:980px){.hero .wrap{grid-template-columns:1fr}}
+.hero-copy{container-type:inline-size;min-width:0}
+.hero h1{font-size:clamp(34px,11cqi,92px);line-height:.94}
+.hero h1 .thin{display:block;font-weight:500;font-variation-settings:"wdth" 100;color:var(--rose);letter-spacing:-.025em}
+.hero .lead{margin-top:var(--s6);color:var(--bone)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s6)}
+.hero .facts{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);margin:var(--s6) 0 0;padding:0;list-style:none;color:var(--rose);font-size:15px}
+.hero .facts li{display:flex;gap:8px;align-items:center}
+.hero .facts li::before{content:"";width:7px;height:7px;background:var(--bone);transform:rotate(45deg)}
+
+/* demo console */
+.console{background:var(--black);border-radius:22px;border:1px solid #2B1A1E;box-shadow:0 30px 80px -30px rgba(0,0,0,.7);overflow:hidden;min-width:0}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.tabs button{background:transparent;border:0;padding:16px 8px 14px;cursor:pointer;font:800 15px/1 var(--f-display);font-variation-settings:"wdth" 112;color:var(--bone-2);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--bone);border-bottom-color:var(--wine)}
+.tabs button:hover{color:var(--bone)}
+.panel{padding:22px;min-height:440px}
+.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:16px;flex-wrap:wrap}
+.panel-head strong{font-weight:700}
+.tag{font-size:12.5px;color:var(--bone-2);border:1px solid var(--line);border-radius:999px;padding:3px 10px;white-space:nowrap}
+
+/* app demo */
+.app-demo{display:grid;grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:22px;align-items:center}
+@media (max-width:520px){.app-demo{grid-template-columns:1fr;justify-items:center}}
+.phone{width:210px;max-width:100%;aspect-ratio:9/18.5;border-radius:34px;background:#0B0607;border:2px solid #3A2A2D;padding:10px;position:relative}
+.screen{position:relative;height:100%;border-radius:26px;background:#211518;overflow:hidden;display:flex;flex-direction:column}
+.notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:62px;height:16px;border-radius:999px;background:#0B0607;z-index:3}
+.cam{flex:1;position:relative;display:grid;place-items:center;padding:34px 18px 12px}
+.receipt{width:100%;background:var(--paper);color:var(--paper-ink);border-radius:4px 4px 0 0;padding:12px 10px 16px;font:500 9.5px/1.5 var(--f-mono);position:relative}
+.receipt::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;background:linear-gradient(-45deg,transparent 4px,var(--paper) 0) 0 0/8px 6px repeat-x,linear-gradient(45deg,transparent 4px,var(--paper) 0) 0 0/8px 6px repeat-x}
+.receipt b{display:block;text-align:center;font-size:10.5px;margin-bottom:4px}
+.receipt .r{display:flex;justify-content:space-between;gap:6px}
+.receipt .sum{border-top:1px dashed #9C8A86;margin-top:5px;padding-top:4px;font-weight:700}
+.scanline{position:absolute;left:10px;right:10px;height:2px;background:var(--wine);box-shadow:0 0 14px 3px rgba(196,44,71,.75);top:18%;opacity:0}
+.scanning .scanline{opacity:1;animation:scan 1.4s ease-in-out 2 alternate}
+@keyframes scan{from{top:16%}to{top:84%}}
+.hl{background:rgba(196,44,71,.22);outline:1px solid var(--wine);border-radius:2px}
+.app-bar{background:#2A1B1F;padding:10px 14px 14px;font-size:11px;color:var(--bone-2);text-align:center}
+.app-out{display:grid;gap:10px;min-width:0}
+.field{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;align-items:baseline;padding-bottom:9px;border-bottom:1px solid var(--line);font-size:15px}
+.field span:first-child{color:var(--bone-2);font-size:13.5px}
+.field span:last-child{font-weight:600;font-variant-numeric:tabular-nums;opacity:.18;transition:opacity .35s}
+.field.on span:last-child{opacity:1}
+.app-out .note{font-size:14px;color:var(--bone-2);margin-top:4px}
+.app-out .btn{min-height:44px;font-size:15px;justify-self:start;margin-top:4px}
+
+/* quiz demo */
+.q-progress{height:6px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:18px}
+.q-progress i{display:block;height:100%;width:0;background:var(--wine);transition:width .3s}
+.q-title{font:800 clamp(20px,2.3vw,26px)/1.15 var(--f-display);font-variation-settings:"wdth" 110;margin-bottom:18px;text-wrap:balance}
+.q-opts{display:grid;gap:10px}
+.q-opt{display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;width:100%;min-height:54px;padding:12px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--black-2);cursor:pointer;font-weight:600;font-size:16px}
+.q-opt:hover{border-color:var(--bone-2)}
+.q-opt.right{border-color:var(--ok);background:#173023}
+.q-opt.wrong{border-color:var(--wine);background:#3A1119}
+.q-opt .mk{font-size:13px;font-weight:700;white-space:nowrap}
+.q-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px;color:var(--bone-2);font-size:14px;flex-wrap:wrap}
+.q-result{display:grid;gap:14px}
+.q-score{font:900 72px/1 var(--f-display);font-variation-settings:"wdth" 125;letter-spacing:-.03em}
+.board{display:grid;gap:6px;font-size:15px}
+.board div{display:grid;grid-template-columns:28px 1fr auto;gap:8px;padding:8px 12px;border-radius:10px;background:var(--black-2);font-variant-numeric:tabular-nums}
+.board div.me{background:var(--bordeaux);font-weight:700}
+
+/* map demo */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 13px;border-radius:999px;border:1.5px solid var(--line);background:transparent;cursor:pointer;font-size:14px;font-weight:600;color:var(--bone-2)}
+.chip[aria-pressed="true"]{border-color:var(--bone);color:var(--bone);background:var(--black-2)}
+.chip svg{width:14px;height:14px}
+.map-wrap{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.map-wrap svg.map{display:block;width:100%;height:auto;max-width:100%}
+.pin{cursor:pointer;transition:opacity .2s}
+.pin.off{opacity:.12;pointer-events:none}
+.pin:focus{outline:none}
+.pin:focus-visible .pin-ring,.pin.sel .pin-ring{stroke:var(--bone);stroke-width:3}
+.map-card{margin-top:12px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:12px 14px;border-radius:14px;background:var(--black-2);min-height:72px}
+.map-card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--bordeaux)}
+.map-card .ic svg{width:20px;height:20px}
+.map-card strong{display:block;font-size:16px}
+.map-card span{font-size:14px;color:var(--bone-2)}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:var(--s6);align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr}}
+
+/* services list */
+.svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.svc li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s5) var(--s7);padding-block:clamp(22px,3vw,34px);border-bottom:1px solid var(--line);align-items:start}
+@media (max-width:760px){.svc li{grid-template-columns:1fr;gap:10px}}
+.svc h3{font-size:clamp(24px,3.4vw,42px);line-height:1}
+.svc li.main h3{font-size:clamp(30px,5vw,64px)}
+.svc li.main{padding-block:clamp(28px,4vw,48px)}
+.svc .what{display:grid;gap:12px}
+.svc .ex{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.svc .ex li{display:block;border:0;padding:4px 11px;border-radius:999px;background:var(--black-2);font-size:13.5px;color:var(--bone-2)}
+.badge{display:inline-block;font:700 13px/1 var(--f-body);background:var(--wine);color:#fff;padding:6px 10px;border-radius:999px;vertical-align:middle;margin-left:10px;letter-spacing:0;transform:translateY(-.4em)}
+
+/* case study */
+.case{background:var(--black-2);border-block:1px solid var(--line)}
+.case-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,88px);align-items:center}
+@media (max-width:900px){.case-grid{grid-template-columns:1fr}}
+.case h2{margin-bottom:var(--s5)}
+.case .lead{margin-bottom:var(--s5)}
+.case ul.points{list-style:none;margin:0 0 var(--s6);padding:0;display:grid;gap:12px}
+.case ul.points li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.case ul.points li::before{content:"";width:9px;height:9px;margin-top:.55em;background:var(--wine);transform:rotate(45deg)}
+.big-receipt{background:var(--paper);color:var(--paper-ink);padding:28px 26px 34px;border-radius:6px 6px 0 0;font:500 14px/1.6 var(--f-mono);position:relative;max-width:440px;width:100%;justify-self:center;transform:rotate(1.2deg);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.big-receipt::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:12px;background:linear-gradient(-45deg,transparent 8px,var(--paper) 0) 0 0/16px 12px repeat-x,linear-gradient(45deg,transparent 8px,var(--paper) 0) 0 0/16px 12px repeat-x}
+.big-receipt .h{text-align:center;font:800 22px/1.1 var(--f-display);font-variation-settings:"wdth" 125;margin-bottom:4px}
+.big-receipt .c{text-align:center;font-size:12px;color:#6E5A57;margin-bottom:14px}
+.big-receipt .r{display:flex;justify-content:space-between;gap:12px;padding-block:3px}
+.big-receipt .r span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.big-receipt hr{border:0;border-top:1.5px dashed #A8948F;margin:12px 0}
+.big-receipt .tot{font-weight:800;font-size:15px}
+.big-receipt .bar{margin-top:16px;height:38px;background:repeating-linear-gradient(90deg,var(--paper-ink) 0 2px,transparent 2px 4px,var(--paper-ink) 4px 5px,transparent 5px 9px,var(--paper-ink) 9px 12px,transparent 12px 14px)}
+
+/* background track record */
+.track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+@media (max-width:860px){.track{grid-template-columns:1fr}}
+.track article{padding:28px 28px 28px 0;display:grid;gap:12px;align-content:start}
+.track article+article{padding-left:28px;border-left:1px solid var(--line)}
+@media (max-width:860px){.track article,.track article+article{padding:24px 0;border-left:0;border-bottom:1px solid var(--line)}}
+.track .num{font:900 clamp(44px,5vw,64px)/1 var(--f-display);font-variation-settings:"wdth" 125;letter-spacing:-.03em;color:var(--bone)}
+.track .num small{font-size:.4em;font-weight:700;letter-spacing:0;color:var(--bone-2);margin-left:6px}
+.creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--s6)}
+.creds span{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14.5px;color:var(--bone-2)}
+
+/* comparison */
+.cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px}
+table.cmp{width:100%;border-collapse:collapse;min-width:560px;font-size:16px}
+.cmp th,.cmp td{text-align:left;padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead th{font:800 16px/1.2 var(--f-display);font-variation-settings:"wdth" 112;color:var(--bone-2)}
+.cmp thead th.me{color:var(--bone);background:var(--bordeaux)}
+.cmp td.me{background:rgba(92,15,31,.55);font-weight:600}
+.cmp td:first-child{color:var(--bone-2);width:22%}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s5);counter-reset:s}
+@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:s;display:grid;gap:10px;align-content:start;padding-top:18px;border-top:3px solid var(--bordeaux-2)}
+.steps li::before{content:counter(s);font:900 44px/1 var(--f-display);font-variation-settings:"wdth" 125;color:var(--wine)}
+
+/* brief builder */
+.brief{background:radial-gradient(110% 90% at 10% 0%,#7E1A2E 0%,var(--bordeaux) 50%,#3E0913 100%);border-block:1px solid var(--line-b)}
+.brief .muted{color:var(--rose)}
+.brief-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:900px){.brief-grid{grid-template-columns:1fr}}
+fieldset{border:0;margin:0 0 var(--s5);padding:0;min-width:0}
+legend{font-weight:700;font-size:17px;margin-bottom:10px;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative;cursor:pointer}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts span{display:inline-flex;align-items:center;min-height:42px;padding:0 15px;border-radius:999px;border:1.5px solid var(--line-b);background:rgba(46,7,15,.55);font-size:15px;font-weight:600;color:var(--rose);transition:background .15s,color .15s,border-color .15s}
+.opts label:hover span{border-color:var(--rose)}
+.opts input:checked+span{background:var(--bone);color:var(--bordeaux);border-color:var(--bone)}
+.opts input:focus-visible+span{outline:3px solid var(--bone);outline-offset:2px}
+textarea{width:100%;min-height:110px;resize:vertical;border-radius:14px;border:1.5px solid var(--line-b);background:rgba(21,13,15,.35);color:var(--bone);padding:14px 16px;font:400 16px/1.5 var(--f-body)}
+textarea::placeholder{color:#C9A3A4}
+textarea:focus{outline:none;border-color:var(--bone)}
+.out{background:rgba(21,13,15,.92);backdrop-filter:blur(6px);border-radius:20px;padding:24px;display:grid;gap:16px;position:sticky;top:96px}
+.out pre{margin:0;white-space:pre-wrap;word-break:break-word;font:400 15px/1.6 var(--f-body);color:var(--bone);background:var(--black-2);border-radius:12px;padding:16px;min-height:150px}
+.out .row{display:flex;flex-wrap:wrap;gap:10px}
+.out .btn{min-height:46px;font-size:15px}
+.out small{color:var(--bone-2);font-size:13.5px}
+.toast{font-size:14px;color:var(--ok);min-height:1.4em}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(28px,6vw,80px);align-items:center}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}}
+.portrait{aspect-ratio:4/5;width:100%;max-width:420px;border-radius:24px;background:radial-gradient(90% 70% at 70% 20%,#96223A 0%,var(--bordeaux) 55%,#3E0913 100%);display:grid;place-items:center;position:relative;overflow:hidden}
+.portrait::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(241,231,224,.16) 1.2px,transparent 1.6px);background-size:28px 28px}
+.portrait img{position:relative;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.portrait::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(to top,rgba(21,13,15,.85),transparent)}
+.portrait .mono{font:900 clamp(96px,14vw,170px)/1 var(--f-display);font-variation-settings:"wdth" 125;letter-spacing:-.05em;color:var(--bone)}
+.portrait .loc{position:absolute;z-index:1;left:16px;bottom:14px;font-size:13.5px;color:var(--rose)}
+.about-grid .lead+p{margin-top:var(--s4)}
+
+/* contact */
+.contact{padding-block:clamp(72px,10vw,140px);background:radial-gradient(80% 70% at 90% 100%,#3A0E18 0%,var(--black) 70%);border-top:1px solid var(--line)}
+.contact.fxhost::after{opacity:.12}
+.contact h2{font-size:clamp(40px,8vw,112px);line-height:.92}
+.lines{display:grid;gap:4px;margin-top:var(--s7);border-top:1px solid var(--line)}
+.line{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-block:22px;border-bottom:1px solid var(--line)}
+.line .k{color:var(--bone-2);font-size:15px;width:110px}
+.line .v{flex:1;min-width:0;font:800 clamp(20px,3.4vw,40px)/1.1 var(--f-display);font-variation-settings:"wdth" 110;letter-spacing:-.015em;text-decoration:none;overflow-wrap:anywhere;user-select:all}
+.line .v:hover{color:var(--rose)}
+.copy{border:1.5px solid var(--line);background:transparent;border-radius:999px;min-height:40px;padding:0 16px;font-weight:600;font-size:14px;cursor:pointer;color:var(--bone-2)}
+.copy:hover{color:var(--bone);border-color:var(--bone-2)}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--bone-2);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#start">Daniel Ochojski</a>
+    <nav class="nav" aria-label="Menu">
+      <a href="#uslugi" data-i18n="nav1">Usługi</a>
+      <a href="#realizacje" data-i18n="nav2">Realizacje</a>
+      <a href="#jak" data-i18n="nav3">Jak pracuję</a>
+      <a href="#kontakt" data-i18n="nav4">Kontakt</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Język / Language">
+      <button type="button" data-lang="pl" aria-pressed="true">PL</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn" href="tel:+48503558066"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span class="call-txt">503 558 066</span></a>
+  </div>
+</header>
+
+<main id="start">
+<!-- ================= HERO ================= -->
+<div class="hero fxhost">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1><span data-i18n="h1a">Aplikacje na zamówienie.</span> <span class="thin" data-i18n="h1b">Od pomysłu do App Store i Google Play.</span></h1>
+      <p class="lead" data-i18n="heroLead">Projektuję, programuję i utrzymuję aplikacje, strony internetowe, quizy i mapy na wydarzenia. Rozmawiasz bezpośrednio z programistą, który napisał backend dla płatności online i systemów administracji publicznej.</p>
+      <div class="ctas">
+        <a class="btn" href="#projekt" data-i18n="cta1">Opisz swój projekt</a>
+        <a class="btn ghost" href="#realizacje" data-i18n="cta2">Zobacz ParagonPro</a>
+      </div>
+      <ul class="facts">
+        <li data-i18n="f1">Ponad 5 lat w produkcji</li>
+        <li data-i18n="f2">Frontend, backend i wdrożenie</li>
+        <li data-i18n="f3">Opieka po starcie</li>
+      </ul>
+    </div>
+
+    <div class="console" aria-label="Interaktywne dema">
+      <div class="tabs" role="tablist">
+        <button role="tab" id="t-app" aria-controls="p-app" aria-selected="true" data-i18n="tabApp">Aplikacja</button>
+        <button role="tab" id="t-quiz" aria-controls="p-quiz" aria-selected="false" tabindex="-1" data-i18n="tabQuiz">Quiz</button>
+        <button role="tab" id="t-map" aria-controls="p-map" aria-selected="false" tabindex="-1" data-i18n="tabMap">Mapa</button>
+      </div>
+
+      <!-- app -->
+      <div class="panel" role="tabpanel" id="p-app" aria-labelledby="t-app">
+        <div class="panel-head"><strong data-i18n="appHead">Skanowanie paragonu przez AI</strong><span class="tag" data-i18n="appTag">fragment ParagonPro</span></div>
+        <div class="app-demo">
+          <div class="phone" aria-hidden="true">
+            <div class="screen">
+              <div class="notch"></div>
+              <div class="cam">
+                <div class="receipt" id="rcpt">
+                  <b>MARKET POD LIPAMI</b>
+                  <div class="r" data-k="shop"><span>ul. Rynek 3, Tychy</span></div>
+                  <div class="r" data-k="date"><span>06.10.2026</span><span>18:42</span></div>
+                  <div class="r"><span>Czajnik elektr.</span><span>129,99</span></div>
+                  <div class="r"><span>Kawa ziarn. 1kg</span><span>54,90</span></div>
+                  <div class="r"><span>Mleko 2% x2</span><span>7,98</span></div>
+                  <div class="r sum" data-k="sum"><span>SUMA PLN</span><span>192,87</span></div>
+                  <div class="scanline"></div>
+                </div>
+              </div>
+              <div class="app-bar" id="appbar">Gotowe</div>
+            </div>
+          </div>
+          <div class="app-out" aria-live="polite">
+            <div class="field" data-f="shop"><span data-i18n="fShop">Sklep</span><span>Market pod Lipami</span></div>
+            <div class="field" data-f="date"><span data-i18n="fDate">Data</span><span data-i18n="fDateV">6 paź 2026, 18:42</span></div>
+            <div class="field" data-f="sum"><span data-i18n="fSum">Kwota</span><span>192,87 zł</span></div>
+            <div class="field" data-f="cat"><span data-i18n="fCat">Kategoria</span><span data-i18n="fCatV">AGD i spożywcze</span></div>
+            <div class="field" data-f="war"><span data-i18n="fWar">Gwarancja</span><span data-i18n="fWarV">Czajnik do 6.10.2028</span></div>
+            <p class="note" data-i18n="appNote">Zdjęcie trafia do AI, które odczytuje dane i samo zakłada gwarancję z przypomnieniem.</p>
+            <button class="btn" type="button" id="scan" data-i18n="scanBtn">Zeskanuj paragon</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- quiz -->
+      <div class="panel" role="tabpanel" id="p-quiz" aria-labelledby="t-quiz" hidden>
+        <div class="panel-head"><strong data-i18n="quizHead">Quiz na wydarzenie</strong><span class="tag" data-i18n="quizTag">przykład</span></div>
+        <div id="quiz" aria-live="polite"></div>
+      </div>
+
+      <!-- map -->
+      <div class="panel" role="tabpanel" id="p-map" aria-labelledby="t-map" hidden>
+        <div class="panel-head"><strong data-i18n="mapHead">Mapa festiwalu nad Paprocanami</strong><span class="tag" data-i18n="mapTag">przykład</span></div>
+        <div class="chips" id="chips"></div>
+        <div class="map-wrap">
+          <svg class="map" id="map" viewBox="0 0 480 300" role="img" aria-labelledby="mapTitle">
+            <title id="mapTitle">Mapa terenu festiwalu</title>
+            <rect width="480" height="300" fill="#22171A"/>
+            <path d="M0 0 H200 C170 40 150 70 120 92 C80 120 40 118 0 140 Z" fill="#1E2A33"/>
+            <path d="M0 140 C40 118 80 120 120 92 C150 70 170 40 200 0" fill="none" stroke="#3A5566" stroke-width="2"/>
+            <rect x="148" y="104" width="300" height="176" rx="18" fill="#26302A"/>
+            <path d="M130 230 C190 200 250 210 300 180 S400 140 470 150" fill="none" stroke="#5A4A44" stroke-width="10" stroke-linecap="round"/>
+            <path d="M300 180 C305 215 300 250 290 290" fill="none" stroke="#5A4A44" stroke-width="8" stroke-linecap="round"/>
+            <path d="M215 120 C220 150 210 180 205 206" fill="none" stroke="#5A4A44" stroke-width="6" stroke-linecap="round"/>
+            <rect x="330" y="118" width="96" height="44" rx="6" fill="#33403A"/>
+            <rect x="350" y="214" width="84" height="52" rx="6" fill="#2F3933"/>
+            <g fill="#3A4A3F"><circle cx="175" cy="135" r="9"/><circle cx="190" cy="152" r="7"/><circle cx="260" cy="128" r="8"/><circle cx="420" cy="196" r="9"/><circle cx="165" cy="262" r="8"/></g>
+            <text x="34" y="44" fill="#6F8FA3" font-family="Schibsted Grotesk, sans-serif" font-size="13" font-style="italic" data-i18n="lake">Jezioro Paprocany</text>
+            <g id="pins"></g>
+          </svg>
+        </div>
+        <div class="map-card" id="mapcard" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section id="uslugi">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="svcH">Co mogę dla Ciebie zbudować</h2>
+      <p class="lead muted" data-i18n="svcP">Jedna osoba od projektu ekranów po serwer i publikację w sklepach. Bez przekazywania zlecenia dalej.</p>
+    </div>
+    <ul class="svc">
+      <li class="main">
+        <h3><span data-i18n="s1h">Aplikacje na zamówienie</span></h3>
+        <div class="what">
+          <p data-i18n="s1p">Aplikacje mobilne na iOS i Androida oraz aplikacje webowe: panele klienta, systemy rezerwacji, narzędzia wewnętrzne dla firmy. Z logowaniem, płatnościami, powiadomieniami i panelem administracyjnym.</p>
+          <ul class="ex"><li>iOS</li><li>Android</li><li data-i18n="s1e3">aplikacja webowa</li><li data-i18n="s1e4">płatności</li><li data-i18n="s1e5">AI</li></ul>
+        </div>
+      </li>
+      <li>
+        <h3 data-i18n="s2h">Strony internetowe</h3>
+        <div class="what">
+          <p data-i18n="s2p">Strony firmowe i landing page, które szybko się ładują, dobrze wyglądają na telefonie i dają się znaleźć w Google.</p>
+          <ul class="ex"><li data-i18n="s2e1">strona firmowa</li><li>landing page</li><li>SEO</li></ul>
+        </div>
+      </li>
+      <li>
+        <h3 data-i18n="s3h">Quizy i konkursy</h3>
+        <div class="what">
+          <p data-i18n="s3p">Quizy na wydarzenia, konferencje i kampanie marek. Uczestnicy grają z telefonu po zeskanowaniu kodu QR, a ranking widać na ekranie na żywo.</p>
+          <ul class="ex"><li data-i18n="s3e1">kod QR</li><li data-i18n="s3e2">ranking na żywo</li><li data-i18n="s3e3">panel organizatora</li></ul>
+        </div>
+      </li>
+      <li>
+        <h3 data-i18n="s4h">Mapy interaktywne na wydarzenia</h3>
+        <div class="what">
+          <p data-i18n="s4p">Mapy festiwali, biegów, targów i miasteczek eventowych: sceny, strefy, trasy, harmonogram. Organizator sam zmienia punkty w panelu.</p>
+          <ul class="ex"><li data-i18n="s4e1">festiwale</li><li data-i18n="s4e2">biegi</li><li data-i18n="s4e3">targi</li><li data-i18n="s4e4">harmonogram</li></ul>
+        </div>
+      </li>
+      <li>
+        <h3 data-i18n="s5h">Backend i integracje</h3>
+        <div class="what">
+          <p data-i18n="s5p">Serwery, bazy danych, API i integracje z systemami zewnętrznymi: płatności, KSeF, systemy firmowe. To, czego nie widać, a od czego zależy, czy aplikacja działa.</p>
+          <ul class="ex"><li>Java / Spring</li><li>API</li><li>KSeF</li><li data-i18n="s5e4">płatności</li></ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CASE ================= -->
+<section class="case" id="realizacje">
+  <div class="wrap case-grid">
+    <div>
+      <h2>ParagonPro</h2>
+      <p class="lead" data-i18n="caseLead">Moja aplikacja do paragonów, gwarancji i faktur. Zrobiłem ją sam od zera i opublikowałem na trzech platformach.</p>
+      <ul class="points">
+        <li data-i18n="cp1">AI odczytuje paragon ze zdjęcia: sklep, kwotę, datę, kategorię i produkty.</li>
+        <li data-i18n="cp2">Aplikacja pilnuje terminów gwarancji i generuje gotowe pismo reklamacyjne.</li>
+        <li data-i18n="cp3">Integracja z Krajowym Systemem e-Faktur (KSeF): faktury pobierają się automatycznie.</li>
+        <li data-i18n="cp4">Subskrypcja z płatnościami na stronie, w App Store i w Google Play.</li>
+      </ul>
+      <a class="btn" href="https://paragonpro.pl" target="_blank" rel="noopener" data-i18n="caseBtn">Otwórz paragonpro.pl</a>
+    </div>
+    <div class="big-receipt" role="img" aria-label="Paragon z listą elementów projektu ParagonPro">
+      <div class="h">PARAGONPRO</div>
+      <div class="c" data-i18n="rcSub">Paragon fiskalny projektu</div>
+      <div class="r"><span data-i18n="rc1">Aplikacja iOS</span><span>1 szt.</span></div>
+      <div class="r"><span data-i18n="rc2">Aplikacja Android</span><span>1 szt.</span></div>
+      <div class="r"><span data-i18n="rc3">Aplikacja webowa</span><span>1 szt.</span></div>
+      <div class="r"><span data-i18n="rc4">Rozpoznawanie AI</span><span>✓</span></div>
+      <div class="r"><span data-i18n="rc5">Integracja KSeF</span><span>✓</span></div>
+      <div class="r"><span data-i18n="rc6">Konto rodzinne</span><span>do 5 os.</span></div>
+      <div class="r"><span data-i18n="rc7">Kod mobilny</span><span>31 566 lin.</span></div>
+      <hr>
+      <div class="r tot"><span data-i18n="rc8">RAZEM</span><span data-i18n="rc9">1 programista</span></div>
+      <div class="bar" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRACK RECORD ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="trH">Backend, który już coś udźwignął</h2>
+      <p class="lead muted" data-i18n="trP">Na co dzień buduję systemy dla płatności, transportu i administracji. Szczegóły tych projektów objęte są poufnością, ale ich skala jest wpisana w każdą aplikację, którą robię.</p>
+    </div>
+    <div class="track">
+      <article>
+        <div class="num">30%<small data-i18n="tr1s">szybciej</small></div>
+        <h3 data-i18n="tr1h">Platforma płatności online</h3>
+        <p class="muted" data-i18n="tr1p">Bramki płatnicze i integracje z usługami finansowymi. Przyspieszyłem przetwarzanie transakcji o 30%.</p>
+      </article>
+      <article>
+        <div class="num" data-i18n="tr2n">24/7</div>
+        <h3 data-i18n="tr2h">Ruch ciężarówek na granicy</h3>
+        <p class="muted" data-i18n="tr2p">Monitoring wjazdów i wyjazdów w czasie rzeczywistym, automatyczne zatwierdzenia i integracja z bazami instytucji państwowych.</p>
+      </article>
+      <article>
+        <div class="num" data-i18n="tr3n">Gov</div>
+        <h3 data-i18n="tr3h">System inspekcji sanitarnych</h3>
+        <p class="muted" data-i18n="tr3p">Harmonogramy, przetwarzanie danych i raporty dla administracji, z monitoringiem wydajności i automatycznymi wdrożeniami.</p>
+      </article>
+    </div>
+    <div class="creds">
+      <span data-i18n="cr1">5+ lat komercyjnie</span>
+      <span data-i18n="cr2">1. miejsce w konkursie programistycznym WSIZ (2018)</span>
+      <span data-i18n="cr3">2. miejsce (2019)</span>
+      <span data-i18n="cr4">Programowanie konkursowe na Codeforces</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="whyH">Dlaczego bezpośrednio ze mną</h2>
+      <p class="lead muted" data-i18n="whyP">Porównanie z typową ścieżką przez agencję.</p>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th scope="col"></th><th scope="col" data-i18n="whyC1">Typowa agencja</th><th scope="col" class="me">Daniel Ochojski</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="w1">Kontakt</td><td data-i18n="w1a">Przez opiekuna projektu, który przekazuje pytania dalej</td><td class="me" data-i18n="w1b">Telefon i mail bezpośrednio do osoby, która pisze kod</td></tr>
+          <tr><td data-i18n="w2">Szybkość</td><td data-i18n="w2a">Zmiana czeka w kolejce między działami</td><td class="me" data-i18n="w2b">Krótka droga od decyzji do wdrożenia</td></tr>
+          <tr><td data-i18n="w3">Zakres</td><td data-i18n="w3a">Osobno projekt, frontend, backend i serwer</td><td class="me" data-i18n="w3b">Wszystko w jednym miejscu, z jedną osobą odpowiedzialną</td></tr>
+          <tr><td data-i18n="w4">Po starcie</td><td data-i18n="w4a">Często nowa umowa i nowy zespół</td><td class="me" data-i18n="w4b">Opieka, poprawki i rozwój przez tę samą osobę</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="jak" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="prH">Jak pracuję</h2>
+      <p class="lead muted" data-i18n="prP">Cztery kroki, ten sam porządek przy każdym projekcie.</p>
+    </div>
+    <ol class="steps">
+      <li><h3 data-i18n="p1h">Rozmowa</h3><p class="muted" data-i18n="p1p">Opowiadasz, co chcesz osiągnąć. Dopytuję o użytkowników, termin i to, co już masz.</p></li>
+      <li><h3 data-i18n="p2h">Wycena i plan</h3><p class="muted" data-i18n="p2p">Dostajesz indywidualną wycenę, zakres i harmonogram. Bez ukrytych pozycji.</p></li>
+      <li><h3 data-i18n="p3h">Budowa</h3><p class="muted" data-i18n="p3p">Pracuję etapami i pokazuję działające wersje, więc widzisz postęp i możesz korygować kierunek.</p></li>
+      <li><h3 data-i18n="p4h">Start i opieka</h3><p class="muted" data-i18n="p4p">Wdrażam, publikuję w sklepach i zostaję przy projekcie: poprawki, aktualizacje, rozwój.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= BRIEF ================= -->
+<section class="brief fxhost" id="projekt">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="brH">Opisz projekt w minutę</h2>
+      <p class="lead muted" data-i18n="brP">Zaznacz, co pasuje. Z odpowiedzi powstaje gotowa wiadomość, którą wysyłasz mi mailem albo kopiujesz.</p>
+    </div>
+    <div class="brief-grid">
+      <form id="bf" novalidate>
+        <fieldset>
+          <legend data-i18n="b1">Co chcesz zbudować?</legend>
+          <div class="opts" id="o-what"></div>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="b2">Na kiedy?</legend>
+          <div class="opts" id="o-when"></div>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="b3">Co już masz?</legend>
+          <div class="opts" id="o-have"></div>
+        </fieldset>
+        <fieldset>
+          <legend><label for="b-desc" data-i18n="b4">Kilka zdań o pomyśle</label></legend>
+          <textarea id="b-desc" data-i18n-ph="b4ph" placeholder="Np. aplikacja do zapisów na treningi z płatnością online i przypomnieniami SMS."></textarea>
+        </fieldset>
+      </form>
+      <div class="out">
+        <pre id="brief-text"></pre>
+        <div class="row">
+          <a class="btn" id="mail" href="mailto:daniel.ochojski.25.10@gmail.com" data-i18n="send">Wyślij mailem</a>
+          <button class="btn ghost" type="button" id="copybrief" data-i18n="copyB">Kopiuj wiadomość</button>
+        </div>
+        <div class="toast" id="toast" role="status"></div>
+        <small data-i18n="brSmall">Odpowiadam zwykle tego samego dnia roboczego. Wycena jest bezpłatna.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section>
+  <div class="wrap about-grid">
+    <div class="portrait" id="portrait">
+      <img src="portrait.webp" width="900" height="1125" alt="Daniel Ochojski" loading="lazy" decoding="async">
+      <span class="loc" data-i18n="loc">Tychy, pracuję zdalnie z całą Polską</span>
+    </div>
+    <div>
+      <h2 data-i18n="abH">Cześć, jestem Daniel</h2>
+      <p class="lead" style="margin-top:24px" data-i18n="abP1">Jestem programistą Java z ponad pięcioletnim doświadczeniem w systemach, w których błąd kosztuje pieniądze. Po godzinach robię aplikacje, strony, quizy i mapy dla firm, organizatorów wydarzeń i osób prywatnych.</p>
+      <p class="muted" data-i18n="abP2">Wygrywałem konkursy programistyczne, nadal rozwiązuję zadania algorytmiczne i trenuję sztuki walki. Z obu rzeczy wyniosłem to samo: skończ to, co zacząłeś, i rób to porządnie.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact fxhost" id="kontakt">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h2 data-i18n="ctH">Masz pomysł? Zadzwoń albo napisz.</h2>
+    <div class="lines">
+      <div class="line">
+        <span class="k" data-i18n="ctPhone">Telefon</span>
+        <a class="v" href="tel:+48503558066">+48 503 558 066</a>
+        <button class="copy" type="button" data-copy="+48 503 558 066" data-i18n="copy">Kopiuj</button>
+      </div>
+      <div class="line">
+        <span class="k">E-mail</span>
+        <a class="v" href="mailto:daniel.ochojski.25.10@gmail.com">daniel.ochojski.25.10@gmail.com</a>
+        <button class="copy" type="button" data-copy="daniel.ochojski.25.10@gmail.com" data-i18n="copy">Kopiuj</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Creativ Apps Daniel Ochojski · NIP 646-299-24-18 · Tychy</span>
+    <span>© <span id="yr">2026</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let lang="pl";
+
+/* ---------- i18n ---------- */
+const EN={
+ nav1:"Services",nav2:"Work",nav3:"Process",nav4:"Contact",
+ h1a:"Custom apps, built for you.",h1b:"From idea to the App Store and Google Play.",
+ heroLead:"I design, build and maintain apps, websites, quizzes and maps for events. You talk directly to the developer who wrote backends for online payments and public-sector systems.",
+ cta1:"Describe your project",cta2:"See ParagonPro",
+ f1:"5+ years in production",f2:"Frontend, backend and deployment",f3:"Support after launch",
+ tabApp:"App",tabQuiz:"Quiz",tabMap:"Map",
+ appHead:"AI receipt scanning",appTag:"from ParagonPro",fShop:"Store",fDate:"Date",fSum:"Total",fCat:"Category",fCatV:"Home and groceries",fWar:"Warranty",fDateV:"6 Oct 2026, 18:42",lake:"Lake Paprocany",fWarV:"Kettle until 6 Oct 2028",
+ appNote:"The photo goes to an AI model that reads the data and sets up the warranty with a reminder.",scanBtn:"Scan receipt",
+ quizHead:"Event quiz",quizTag:"example",mapHead:"Festival map by Lake Paprocany",mapTag:"example",
+ svcH:"What I can build for you",svcP:"One person from screen design to server and store release. Your project is never handed off to someone else.",
+ s1h:"Custom apps",s1p:"Mobile apps for iOS and Android and web apps: customer portals, booking systems, internal tools. With sign-in, payments, notifications and an admin panel.",s1e3:"web app",s1e4:"payments",s1e5:"AI",
+ s2h:"Websites",s2p:"Company sites and landing pages that load fast, look good on phones and can be found on Google.",s2e1:"company site",
+ s3h:"Quizzes and contests",s3p:"Quizzes for events, conferences and brand campaigns. People play on their phones after scanning a QR code, with a live leaderboard on screen.",s3e1:"QR code",s3e2:"live leaderboard",s3e3:"organiser panel",
+ s4h:"Interactive event maps",s4p:"Maps for festivals, races, trade fairs and event villages: stages, zones, routes, schedule. Organisers edit the points themselves.",s4e1:"festivals",s4e2:"races",s4e3:"trade fairs",s4e4:"schedule",
+ s5h:"Backend and integrations",s5p:"Servers, databases, APIs and integrations with external systems: payments, Polish e-invoicing (KSeF), company systems. The part you don't see, which decides whether the app works.",s5e4:"payments",
+ caseLead:"My own app for receipts, warranties and invoices. I built it alone from scratch and released it on three platforms.",
+ cp1:"AI reads a receipt from a photo: store, total, date, category and items.",cp2:"The app tracks warranty deadlines and drafts a ready-to-send complaint letter.",cp3:"Integrated with KSeF, the Polish national e-invoicing system, so invoices download automatically.",cp4:"Subscriptions paid on the web, in the App Store and on Google Play.",
+ caseBtn:"Open paragonpro.pl",rcSub:"Project receipt",rc1:"iOS app",rc2:"Android app",rc3:"Web app",rc4:"AI recognition",rc5:"KSeF integration",rc6:"Family account",rc7:"Mobile code",rc8:"TOTAL",rc9:"1 developer",
+ trH:"A backend that has already carried weight",trP:"My day job is building systems for payments, transport and government. The details are confidential, but that scale goes into every app I build.",
+ tr1s:"faster",tr1h:"Online payment platform",tr1p:"Payment gateways and integrations with financial services. I made transaction processing 30% faster.",
+ tr2n:"24/7",tr2h:"Truck traffic at the border",tr2p:"Real-time monitoring of entries and exits, automatic approvals and integration with state databases.",
+ tr3n:"Gov",tr3h:"Sanitary inspection system",tr3p:"Scheduling, data processing and reporting for public administration, with performance monitoring and automated deployments.",
+ cr1:"5+ years commercially",cr2:"1st place, WSIZ programming contest (2018)",cr3:"2nd place (2019)",cr4:"Competitive programming on Codeforces",
+ whyH:"Why work with me directly",whyP:"Compared with the usual route through an agency.",whyC1:"Typical agency",
+ w1:"Contact",w1a:"Through a project manager who passes questions along",w1b:"Phone and email straight to the person writing the code",
+ w2:"Speed",w2a:"Changes wait in a queue between departments",w2b:"A short path from decision to release",
+ w3:"Scope",w3a:"Design, frontend, backend and hosting handled separately",w3b:"Everything in one place, with one person accountable",
+ w4:"After launch",w4a:"Often a new contract and a new team",w4b:"Support, fixes and new features from the same person",
+ prH:"How I work",prP:"Four steps, in the same order for every project.",
+ p1h:"Conversation",p1p:"You tell me what you want to achieve. I ask about your users, deadline and what you already have.",
+ p2h:"Quote and plan",p2p:"You get a custom quote, scope and timeline. No hidden items.",
+ p3h:"Build",p3p:"I work in stages and show working versions, so you see progress and can steer.",
+ p4h:"Launch and support",p4p:"I deploy, publish to the stores and stay with the project: fixes, updates, new features.",
+ brH:"Describe your project in a minute",brP:"Pick what fits. Your answers become a ready message you can email me or copy.",
+ b1:"What do you want to build?",b2:"When do you need it?",b3:"What do you already have?",b4:"A few sentences about the idea",b4ph:"E.g. an app for booking training sessions with online payment and SMS reminders.",
+ send:"Send by email",copyB:"Copy message",brSmall:"I usually reply the same working day. Quotes are free.",
+ loc:"Tychy, Poland. I work remotely",abH:"Hi, I'm Daniel",
+ abP1:"I'm a Java developer with more than five years of experience in systems where a bug costs money. Alongside that I build apps, websites, quizzes and maps for companies, event organisers and individuals.",
+ abP2:"I've won programming contests, still solve algorithm problems and train martial arts. Both taught me the same thing: finish what you start, and do it properly.",
+ ctH:"Got an idea? Call or write.",ctPhone:"Phone",copy:"Copy"
+};
+const PL={};
+$$("[data-i18n]").forEach(el=>{PL[el.dataset.i18n]=el.innerHTML});
+$$("[data-i18n-ph]").forEach(el=>{PL[el.dataset.i18nPh]=el.getAttribute("placeholder")});
+
+const T={
+ pl:{scanning:"Skanuję…",done:"Gotowe",again:"Zeskanuj jeszcze raz",
+  q:[{q:"Ile minut trwa runda w zawodowym MMA?",a:["3 minuty","5 minut","10 minut"],c:1},
+     {q:"Który format zdjęć zwykle waży najmniej przy tej samej jakości?",a:["PNG","JPEG","AVIF"],c:2},
+     {q:"Ile osób może naraz grać w dobrze zrobiony quiz?",a:["Do 50","Do 500","Tyle, ile przyjdzie"],c:2}],
+  qOf:(i,n)=>`Pytanie ${i} z ${n}`,qScore:s=>`Twoje punkty: ${s}`,right:"Dobrze",wrong:"Pudło",
+  rTitle:"Wynik",rNote:"Taki quiz z kodem QR, rankingiem na żywo i panelem organizatora mogę zrobić na Twoje wydarzenie.",rBoard:"Ranking na żywo",you:"Ty",again2:"Zagraj jeszcze raz",
+  cats:{stage:"Sceny",food:"Jedzenie",info:"Info i pomoc",wc:"WC"},
+  pins:[{c:"stage",x:388,y:140,n:"Scena główna",d:"Koncerty 18:00–23:30"},{c:"stage",x:248,y:146,n:"Scena akustyczna",d:"Występy 14:00–20:00"},
+        {c:"food",x:392,y:240,n:"Strefa food trucków",d:"12 food trucków, 12:00–24:00"},{c:"food",x:178,y:205,n:"Kawiarnia nad wodą",d:"Kawa i desery, 10:00–22:00"},
+        {c:"info",x:300,y:262,n:"Punkt informacji",d:"Opaski, zgubione rzeczy, mapa papierowa"},{c:"info",x:262,y:200,n:"Pierwsza pomoc",d:"Ratownicy przez całe wydarzenie"},
+        {c:"wc",x:440,y:180,n:"Toalety przy scenie",d:"Także toaleta dla osób z niepełnosprawnością"},{c:"wc",x:210,y:250,n:"Toalety przy wejściu",d:"Czynne od 10:00"}],
+  pick:"Kliknij punkt na mapie",pickD:"Filtry nad mapą pokazują wybrane strefy.",
+  what:["Aplikacja mobilna","Aplikacja webowa","Strona internetowa","Quiz lub konkurs","Mapa na wydarzenie","Backend / integracja"],
+  when:["Jak najszybciej","W ciągu 1–2 miesięcy","Bez pośpiechu","Mam datę wydarzenia"],
+  have:["Tylko pomysł","Projekt graficzny","Działający system do rozbudowy"],
+  bHello:"Dzień dobry,",bWant:"chcę zbudować:",bWhen:"Termin:",bHave:"Na start mam:",bIdea:"Pomysł:",bBye:"Proszę o kontakt i wycenę.",
+  bEmpty:"(zaznacz opcje po lewej)",subj:"Projekt: ",copied:"Skopiowano.",copyFail:"Zaznacz tekst i skopiuj go ręcznie."},
+ en:{scanning:"Scanning…",done:"Done",again:"Scan again",
+  q:[{q:"How long is a round in professional MMA?",a:["3 minutes","5 minutes","10 minutes"],c:1},
+     {q:"Which image format is usually smallest at the same quality?",a:["PNG","JPEG","AVIF"],c:2},
+     {q:"How many people can play a well-built quiz at once?",a:["Up to 50","Up to 500","As many as show up"],c:2}],
+  qOf:(i,n)=>`Question ${i} of ${n}`,qScore:s=>`Your points: ${s}`,right:"Correct",wrong:"Missed",
+  rTitle:"Score",rNote:"I can build a quiz like this for your event, with a QR code, a live leaderboard and an organiser panel.",rBoard:"Live leaderboard",you:"You",again2:"Play again",
+  cats:{stage:"Stages",food:"Food",info:"Info and help",wc:"Toilets"},
+  pins:[{c:"stage",x:388,y:140,n:"Main stage",d:"Concerts 18:00–23:30"},{c:"stage",x:248,y:146,n:"Acoustic stage",d:"Sets 14:00–20:00"},
+        {c:"food",x:392,y:240,n:"Food truck zone",d:"12 food trucks, 12:00–24:00"},{c:"food",x:178,y:205,n:"Lakeside café",d:"Coffee and desserts, 10:00–22:00"},
+        {c:"info",x:300,y:262,n:"Information point",d:"Wristbands, lost and found, paper maps"},{c:"info",x:262,y:200,n:"First aid",d:"Paramedics throughout the event"},
+        {c:"wc",x:440,y:180,n:"Toilets by the stage",d:"Accessible toilet included"},{c:"wc",x:210,y:250,n:"Toilets at the entrance",d:"Open from 10:00"}],
+  pick:"Tap a point on the map",pickD:"The filters above the map show the zones you choose.",
+  what:["Mobile app","Web app","Website","Quiz or contest","Event map","Backend / integration"],
+  when:["As soon as possible","Within 1–2 months","No rush","I have an event date"],
+  have:["Just an idea","A visual design","A working system to extend"],
+  bHello:"Hello,",bWant:"I'd like to build:",bWhen:"Timeline:",bHave:"What I have:",bIdea:"Idea:",bBye:"Please get in touch with a quote.",
+  bEmpty:"(pick options on the left)",subj:"Project: ",copied:"Copied.",copyFail:"Select the text and copy it manually."}
+};
+const t=()=>T[lang];
+
+function applyLang(l){
+  lang=l;document.documentElement.lang=l;
+  const D=l==="en"?EN:PL;
+  $$("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(D[k]!=null)el.innerHTML=D[k]});
+  $$("[data-i18n-ph]").forEach(el=>{const k=el.dataset.i18nPh;if(D[k]!=null)el.setAttribute("placeholder",D[k])});
+  $$(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===l)));
+  $("#mapTitle").textContent=l==="en"?"Festival grounds map":"Mapa terenu festiwalu";
+  renderQuiz();renderChips();renderPins();renderCard();buildOpts();updateBrief();
+  $("#appbar").textContent=t().done;
+  try{localStorage.setItem("do-lang",l)}catch(e){}
+}
+$$(".lang button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+
+/* ---------- tabs ---------- */
+const tabs=$$('[role="tab"]');
+function selectTab(tab){
+  tabs.forEach(x=>{const on=x===tab;x.setAttribute("aria-selected",on);x.tabIndex=on?0:-1;$("#"+x.getAttribute("aria-controls")).hidden=!on});
+}
+tabs.forEach((tab,i)=>{
+  tab.addEventListener("click",()=>selectTab(tab));
+  tab.addEventListener("keydown",e=>{
+    if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
+    const n=tabs[(i+(e.key==="ArrowRight"?1:tabs.length-1))%tabs.length];selectTab(n);n.focus();
+  });
+});
+
+/* ---------- app scan demo ---------- */
+const fields=$$(".field"), rc=$("#rcpt");
+fields.forEach(f=>f.classList.add("on"));
+let scanT=[];
+function scan(){
+  scanT.forEach(clearTimeout);scanT=[];
+  fields.forEach(f=>f.classList.remove("on"));$$("#rcpt .hl").forEach(x=>x.classList.remove("hl"));
+  rc.classList.remove("scanning");void rc.offsetWidth;rc.classList.add("scanning");
+  $("#appbar").textContent=t().scanning;$("#scan").disabled=true;
+  const order=["shop","date","sum","cat","war"];
+  order.forEach((k,i)=>scanT.push(setTimeout(()=>{
+    $(`.field[data-f="${k}"]`).classList.add("on");
+    const r=$(`#rcpt [data-k="${k}"]`);if(r)r.classList.add("hl");
+    if(i===order.length-1){$("#appbar").textContent=t().done;$("#scan").disabled=false;rc.classList.remove("scanning");$("#scan").textContent=t().again}
+  },1300+i*380)));
+}
+$("#scan").addEventListener("click",scan);
+
+/* ---------- quiz demo ---------- */
+let qi=0,score=0,locked=false;
+function renderQuiz(){
+  const box=$("#quiz"),Q=t().q;
+  if(qi>=Q.length){
+    const me=score*100;
+    const rows=[["Kasia",300],["Marek",200],[t().you,me],["Ola",100]].sort((a,b)=>b[1]-a[1]);
+    box.innerHTML=`<div class="q-progress"><i style="width:100%"></i></div><div class="q-result">
+      <div><div class="muted">${t().rTitle}</div><div class="q-score">${score}/${Q.length}</div></div>
+      <div class="board" aria-label="${t().rBoard}">${rows.map((r,i)=>`<div class="${r[0]===t().you?"me":""}"><span>${i+1}.</span><span>${r[0]}</span><span>${r[1]} pkt</span></div>`).join("")}</div>
+      <p class="muted" style="font-size:15px">${t().rNote}</p>
+      <button class="btn" type="button" id="qagain" style="justify-self:start;min-height:44px;font-size:15px">${t().again2}</button></div>`;
+    $("#qagain").onclick=()=>{qi=0;score=0;renderQuiz();$("#quiz .q-opt")?.focus()};
+    return;
+  }
+  const q=Q[qi];
+  box.innerHTML=`<div class="q-progress"><i style="width:${qi/Q.length*100}%"></i></div>
+    <div class="q-title">${q.q}</div>
+    <div class="q-opts">${q.a.map((a,i)=>`<button type="button" class="q-opt" data-i="${i}"><span>${a}</span><span class="mk"></span></button>`).join("")}</div>
+    <div class="q-foot"><span>${t().qOf(qi+1,Q.length)}</span><span>${t().qScore(score)}</span></div>`;
+  locked=false;
+  $$("#quiz .q-opt").forEach(b=>b.onclick=()=>{
+    if(locked)return;locked=true;
+    const i=+b.dataset.i,ok=i===q.c;if(ok)score++;
+    b.classList.add(ok?"right":"wrong");b.querySelector(".mk").textContent=ok?t().right:t().wrong;
+    if(!ok){const c=$(`#quiz .q-opt[data-i="${q.c}"]`);c.classList.add("right");c.querySelector(".mk").textContent=t().right}
+    setTimeout(()=>{qi++;renderQuiz()},950);
+  });
+}
+
+/* ---------- map demo ---------- */
+const ICON={
+ stage:'<path d="M4 20h16M6 20V9l6-5 6 5v11" fill="none" stroke="currentColor" stroke-width="2"/>',
+ food:'<path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M16 3c-2 2-2 6 0 8v10" fill="none" stroke="currentColor" stroke-width="2"/>',
+ info:'<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v6M12 7v.5" stroke="currentColor" stroke-width="2.4"/>',
+ wc:'<path d="M5 4h14v16H5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4v16" stroke="currentColor" stroke-width="2"/>'
+};
+const PINFILL={stage:"#C42C47",food:"#D98E3B",info:"#5C9BC4",wc:"#8F8A86"};
+const active=new Set(["stage","food","info","wc"]);let sel=0;
+function renderChips(){
+  $("#chips").innerHTML=Object.entries(t().cats).map(([k,v])=>`<button type="button" class="chip" data-c="${k}" aria-pressed="${active.has(k)}"><svg viewBox="0 0 24 24" style="color:${PINFILL[k]}" aria-hidden="true">${ICON[k]}</svg>${v}</button>`).join("");
+  $$("#chips .chip").forEach(c=>c.onclick=()=>{const k=c.dataset.c;active.has(k)?active.delete(k):active.add(k);renderChips();renderPins();
+    if(sel!=null&&!active.has(t().pins[sel].c)){sel=null;renderCard()}});
+}
+function renderPins(){
+  const g=$("#pins");
+  g.innerHTML=t().pins.map((p,i)=>`<g class="pin ${active.has(p.c)?"":"off"} ${i===sel?"sel":""}" data-i="${i}" tabindex="${active.has(p.c)?0:-1}" role="button" aria-label="${p.n}" transform="translate(${p.x} ${p.y})">
+    <path class="pin-ring" d="M0 0 C-11 -12 -13 -17 -13 -22 A13 13 0 1 1 13 -22 C13 -17 11 -12 0 0Z" fill="${PINFILL[p.c]}" stroke="#150D0F" stroke-width="2"/>
+    <g transform="translate(-8 -30) scale(.667)" style="color:#fff">${ICON[p.c]}</g></g>`).join("");
+  $$("#pins .pin").forEach(el=>{
+    const go=()=>{sel=+el.dataset.i;renderPins();renderCard()};
+    el.addEventListener("click",go);
+    el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();$(`#pins .pin[data-i="${sel}"]`)?.focus()}});
+  });
+}
+function renderCard(){
+  const c=$("#mapcard");
+  if(sel==null){c.innerHTML=`<div class="ic"><svg viewBox="0 0 24 24" style="color:var(--bone)">${ICON.info}</svg></div><div><strong>${t().pick}</strong><span>${t().pickD}</span></div>`;return}
+  const p=t().pins[sel];
+  c.innerHTML=`<div class="ic" style="background:${PINFILL[p.c]}"><svg viewBox="0 0 24 24" style="color:#fff">${ICON[p.c]}</svg></div><div><strong>${p.n}</strong><span>${t().cats[p.c]} · ${p.d}</span></div>`;
+}
+
+/* ---------- brief builder ---------- */
+const st={what:new Set([0]),when:1,have:0};
+function buildOpts(){
+  const mk=(id,arr,multi,key)=>{
+    $(id).innerHTML=arr.map((v,i)=>{const on=multi?st[key].has(i):st[key]===i;
+      return `<label><input type="${multi?"checkbox":"radio"}" name="${key}" id="${key}-${i}" value="${i}" ${on?"checked":""}><span>${v}</span></label>`}).join("");
+    $$(`${id} input`).forEach(inp=>inp.addEventListener("change",()=>{
+      const i=+inp.value;
+      if(multi){inp.checked?st[key].add(i):st[key].delete(i)}else st[key]=i;
+      updateBrief();
+    }));
+  };
+  mk("#o-what",t().what,true,"what");mk("#o-when",t().when,false,"when");mk("#o-have",t().have,false,"have");
+}
+function briefText(){
+  const L=t(),w=[...st.what].sort().map(i=>L.what[i]);
+  const d=$("#b-desc").value.trim();
+  return [L.bHello,"",`${L.bWant} ${w.length?w.join(", "):L.bEmpty}`,`${L.bWhen} ${L.when[st.when]}`,`${L.bHave} ${L.have[st.have]}`,d?`${L.bIdea} ${d}`:"","",L.bBye].filter((x,i,a)=>!(x===""&&a[i-1]===""&&i>0)).join("\n");
+}
+function updateBrief(){
+  const txt=briefText();$("#brief-text").textContent=txt;
+  const w=[...st.what].sort().map(i=>t().what[i]).join(", ");
+  $("#mail").href=`mailto:daniel.ochojski.25.10@gmail.com?subject=${encodeURIComponent(t().subj+(w||"–"))}&body=${encodeURIComponent(txt)}`;
+}
+$("#b-desc").addEventListener("input",updateBrief);
+
+async function copyText(txt,btn,toast){
+  try{await navigator.clipboard.writeText(txt);if(toast)toast.textContent=t().copied;else{const o=btn.textContent;btn.textContent=t().copied;setTimeout(()=>btn.textContent=o,1600)}}
+  catch(e){if(toast)toast.textContent=t().copyFail;const r=document.createRange();r.selectNodeContents(btn.closest(".line")?.querySelector(".v")||$("#brief-text"));const s=getSelection();s.removeAllRanges();s.addRange(r)}
+}
+$("#copybrief").addEventListener("click",e=>copyText(briefText(),e.currentTarget,$("#toast")));
+$$(".copy").forEach(b=>b.addEventListener("click",()=>copyText(b.dataset.copy,b,null)));
+
+$("#yr").textContent=new Date().getFullYear();
+
+
+/* ---------- hero background: request pulses on a grid ---------- */
+function gridFx(cv,dense){
+  const hero=cv.parentElement,ctx=cv.getContext("2d");
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const G=36;let W=0,H=0,dpr=1,cols=0,rows=0,mx=-999,my=-999,run=true,pulses=[],raf=0;
+  function size(){dpr=Math.min(devicePixelRatio||1,2);W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);cols=Math.ceil(W/G)+1;rows=Math.ceil(H/G)+1;
+    pulses=Array.from({length:Math.round(W*H/(26000/dense))},mk)}
+  function mk(){const h=Math.random()<.6;return{x:Math.floor(Math.random()*cols)*G,y:Math.floor(Math.random()*rows)*G,dx:h?(Math.random()<.5?1:-1):0,dy:h?0:(Math.random()<.5?1:-1),v:.6+Math.random()*1.4,len:60+Math.random()*120,hot:Math.random()<.25,t:[]}}
+  function step(p){p.x+=p.dx*p.v;p.y+=p.dy*p.v;p.t.unshift([p.x,p.y]);if(p.t.length>p.len/p.v)p.t.pop();
+    if(p.x%G<p.v&&p.y%G<p.v&&Math.random()<.18){const h=p.dx===0;p.x=Math.round(p.x/G)*G;p.y=Math.round(p.y/G)*G;if(h){p.dx=Math.random()<.5?1:-1;p.dy=0}else{p.dy=Math.random()<.5?1:-1;p.dx=0}}
+    if(p.x<-G||p.x>W+G||p.y<-G||p.y>H+G)Object.assign(p,mk(),{t:[]})}
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<cols;i++)for(let j=0;j<rows;j++){const x=i*G,y=j*G,d=Math.hypot(x-mx,y-my),k=Math.max(0,1-d/200);
+      ctx.fillStyle=`rgba(241,231,224,${.10+k*.75})`;ctx.beginPath();ctx.arc(x,y,1+k*1.8,0,6.283);ctx.fill()}
+    for(const p of pulses){if(!still)step(p);const t=p.t;if(t.length<2)continue;
+      const g=ctx.createLinearGradient(t[0][0],t[0][1],t[t.length-1][0],t[t.length-1][1]);
+      const c=p.hot?"241,231,224":"226,70,98";g.addColorStop(0,`rgba(${c},.85)`);g.addColorStop(1,`rgba(${c},0)`);
+      ctx.strokeStyle=g;ctx.lineWidth=p.hot?1.6:1.2;ctx.beginPath();ctx.moveTo(t[0][0],t[0][1]);for(let i=1;i<t.length;i+=3)ctx.lineTo(t[i][0],t[i][1]);ctx.stroke();
+      ctx.fillStyle=`rgba(${c},1)`;ctx.beginPath();ctx.arc(t[0][0],t[0][1],p.hot?2.2:1.8,0,6.283);ctx.fill()}
+    if(mx>-999){const r=ctx.createRadialGradient(mx,my,0,mx,my,260);r.addColorStop(0,"rgba(226,70,98,.18)");r.addColorStop(1,"rgba(226,70,98,0)");ctx.fillStyle=r;ctx.fillRect(mx-260,my-260,520,520)}
+  }
+  function loop(){draw();if(run&&!still)raf=requestAnimationFrame(loop)}
+  hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;if(still)draw()});
+  hero.addEventListener("pointerleave",()=>{mx=my=-999;if(still)draw()});
+  new ResizeObserver(()=>{size();if(still){for(const p of pulses)for(let i=0;i<60;i++)step(p);}draw()}).observe(hero);
+  new IntersectionObserver(([e])=>{run=e.isIntersecting;cancelAnimationFrame(raf);if(run&&!still)loop()}).observe(hero);
+  document.addEventListener("visibilitychange",()=>{cancelAnimationFrame(raf);if(!document.hidden&&run&&!still)loop()});
+}
+$$("canvas.fx").forEach(c=>gridFx(c,c.parentElement.classList.contains("contact")?.8:1));
+
+let saved="pl";
+try{saved=localStorage.getItem("do-lang")||(navigator.language||"pl").slice(0,2)}catch(e){}
+applyLang(saved==="en"?"en":"pl");
+})();
+</script>
+
+</body>
+</html>
